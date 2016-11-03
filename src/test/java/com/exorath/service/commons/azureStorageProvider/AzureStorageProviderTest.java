@@ -1,4 +1,4 @@
-package com.exorath.service.commons;
+package com.exorath.service.commons.azureStorageProvider;
 
 import com.exorath.service.commons.azureStorageProvider.AzureStorageProvider;
 import com.microsoft.azure.storage.CloudStorageAccount;
