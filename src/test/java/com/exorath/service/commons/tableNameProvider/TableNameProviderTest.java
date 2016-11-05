@@ -19,8 +19,8 @@ public class TableNameProviderTest {
     }
 
     @Test
-    public void getTableNameWithDefinedTAWS_TABLE_NAMEEnvVarReturnsValueTest() {
-        environmentVariables.set("AWS_TABLE_NAME", "ThisIsTable");
+    public void getTableNameWithDefinedTABLE_NAMEEnvVarReturnsValueTest() {
+        environmentVariables.set("TABLE_NAME", "ThisIsTable");
         String actual = TableNameProvider.getEnvironmentTableNameProvider().getTableName();
         assertEquals("ThisIsTable", actual);
     }
@@ -31,4 +31,5 @@ public class TableNameProviderTest {
         String actual = TableNameProvider.getEnvironmentTableNameProvider("CUSTOM_TABLE").getTableName();
         assertEquals("ThisIsAlsoTable", actual);
     }
+
 }

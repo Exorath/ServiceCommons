@@ -33,4 +33,5 @@ public class EnvironmentDynamoDBProvider implements DynamoDBProvider {
         return Regions.valueOf(envValue);
 
     }
+    
 }
