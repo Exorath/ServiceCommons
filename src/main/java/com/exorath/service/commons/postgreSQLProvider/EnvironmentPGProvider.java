@@ -44,7 +44,7 @@ public class EnvironmentPGProvider implements PGProvider{
     private URI getURIFromEnv(){
         String envValue = System.getenv(uriEnvName);
         if(envValue == null || envValue == "")
-            throw new IllegalStateException("No " + uriEnvName + " environment variable was provided while trying to load the tableName");
+            throw new IllegalStateException("No " + uriEnvName + " environment variable was provided while trying to load the postgreSQL");
         return URI.create(envValue);
     }
     private Integer getMaxConnectionsFromEnv(){
