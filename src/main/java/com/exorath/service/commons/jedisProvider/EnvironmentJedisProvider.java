@@ -23,19 +23,4 @@ public class EnvironmentJedisProvider implements JedisProvider {
         URI uri = URI.create(envValue);
         return new JedisPool(uri);
     }
-
-    /**
-     * Gets a jedisProvider that fetches the redis URI from the REDIS_URI env variable.
-     * @return a jedisProvider that fetches the redis URI from the REDIS_URI env variable
-     */
-    static JedisProvider getEnvironmentAzureStorageProvider(){
-        return new EnvironmentJedisProvider("REDIS_URI");
-    }
-    /**
-     * Gets a jedisProvider that fetches the redis URI from the {@param uriEnvName} env variable.
-     * @return a jedisProvider that fetches the redis URI from the {@param uriEnvName} env variable
-     */
-    static JedisProvider getEnvironmentAzureStorageProvider(String uriEnvName){
-        return new EnvironmentJedisProvider(uriEnvName);
-    }
 }
