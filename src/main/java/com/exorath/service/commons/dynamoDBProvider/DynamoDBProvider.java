@@ -31,7 +31,7 @@ public interface DynamoDBProvider {
     /**
      * Loads the Database according to <a href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/EnvironmentVariableCredentialsProvider.html">EnvironmentVariableCredentialsProvider</a>.
      * If the required AWS environment variables were not provided, an {@link IllegalStateException} will be thrown.
-     * You must also provide the DynamoDB region in the AWS_REGION environment variable. If no AWS_REGION is provided an {@link IllegalStateException} exception will be thrown. If the AWS_REGION value is not an AWS Region, an {@link IllegalArgumentException} will be thrown.
+     * You must also provide the DynamoDB region in the AWS_REGION environment variable. If no AWS_REGION is provided an {@link IllegalStateException} exception will be thrown. If the            value is not an AWS Region, an {@link IllegalArgumentException} will be thrown.
      * @return a DynamoDB provider configured by the environment
      */
     static DynamoDBProvider getEnvironmentDynamoDBProvider(){
