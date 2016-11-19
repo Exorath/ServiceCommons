@@ -19,7 +19,7 @@ public class EnvironmentJedisProvider implements JedisProvider {
     public JedisPool getPool() {
         String envValue = System.getenv(uriEnvName);
         if (envValue == null || envValue == "")
-            throw new IllegalStateException("No " + envValue + " environment variable was provided while trying to load the Azure Storage Connection String");
+            throw new IllegalStateException("No " + uriEnvName + " environment variable was provided while trying to load the Azure Storage Connection String");
         URI uri = URI.create(envValue);
         return new JedisPool(uri);
     }
