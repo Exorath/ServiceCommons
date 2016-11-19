@@ -16,6 +16,7 @@
 
 package com.exorath.service.commons.dynamoDBProvider;
 
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 
 /**
@@ -27,6 +28,11 @@ public interface DynamoDBProvider {
      * @return the providable database instance
      */
     DynamoDB getDB();
+    /**
+     * Gets the providable client instance.
+     * @return the providable client instance
+     */
+    AmazonDynamoDBClient getClient();
 
     /**
      * Loads the Database according to <a href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/EnvironmentVariableCredentialsProvider.html">EnvironmentVariableCredentialsProvider</a>.

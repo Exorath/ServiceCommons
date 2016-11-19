@@ -19,9 +19,18 @@ public class EnvironmentDynamoDBProvider implements DynamoDBProvider {
     @Override
     public DynamoDB getDB() {
         try {
+            return new DynamoDB(getClient());
+        } catch (SdkClientException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    @Override
+    public AmazonDynamoDBClient getClient() {
+        try {
             AWSCredentials credentials = new EnvironmentVariableCredentialsProvider().getCredentials();
-            return new DynamoDB(new AmazonDynamoDBClient(credentials).withRegion(getRegion()));
-        }catch(SdkClientException e){
+            return new AmazonDynamoDBClient(credentials).withRegion(getRegion());
+        } catch (SdkClientException e) {
             throw new IllegalStateException(e);
         }
     }
@@ -33,5 +42,5 @@ public class EnvironmentDynamoDBProvider implements DynamoDBProvider {
         return Regions.valueOf(envValue);
 
     }
-    
+
 }
