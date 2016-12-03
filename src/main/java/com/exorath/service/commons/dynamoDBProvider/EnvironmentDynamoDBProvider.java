@@ -28,14 +28,20 @@ public class EnvironmentDynamoDBProvider implements DynamoDBProvider {
     @Override
     public AmazonDynamoDBClient getClient() {
         try {
-            AWSCredentials credentials = new EnvironmentVariableCredentialsProvider().getCredentials();
+            AWSCredentials credentials = getCredentials();
             return new AmazonDynamoDBClient(credentials).withRegion(getRegion());
         } catch (SdkClientException e) {
             throw new IllegalStateException(e);
         }
     }
 
-    private Regions getRegion() {
+    @Override
+    public AWSCredentials getCredentials() {
+        return new EnvironmentVariableCredentialsProvider().getCredentials();
+    }
+
+    @Override
+    public Regions getRegion() {
         String envValue = System.getenv(REGION_ENV_VAR);
         if (envValue == null || envValue == "")
             throw new IllegalStateException("No " + REGION_ENV_VAR + " environment variable was provided while trying to load the AWS DynamoDB region");

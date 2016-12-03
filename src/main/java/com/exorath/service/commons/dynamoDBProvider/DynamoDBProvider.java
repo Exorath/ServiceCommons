@@ -16,6 +16,8 @@
 
 package com.exorath.service.commons.dynamoDBProvider;
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 
@@ -25,22 +27,39 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 public interface DynamoDBProvider {
     /**
      * Gets the providable database instance.
+     *
      * @return the providable database instance
      */
     DynamoDB getDB();
+
     /**
      * Gets the providable client instance.
+     *
      * @return the providable client instance
      */
     AmazonDynamoDBClient getClient();
 
     /**
+     * Gets the providable credentials.
+     *
+     * @return the providable credentials
+     */
+    AWSCredentials getCredentials();
+
+    /**
+     * Gets the providable region.
+     * @return the providable region
+     */
+    Regions getRegion();
+
+    /**
      * Loads the Database according to <a href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/EnvironmentVariableCredentialsProvider.html">EnvironmentVariableCredentialsProvider</a>.
      * If the required AWS environment variables were not provided, an {@link IllegalStateException} will be thrown.
      * You must also provide the DynamoDB region in the AWS_REGION environment variable. If no AWS_REGION is provided an {@link IllegalStateException} exception will be thrown. If the            value is not an AWS Region, an {@link IllegalArgumentException} will be thrown.
+     *
      * @return a DynamoDB provider configured by the environment
      */
-    static DynamoDBProvider getEnvironmentDynamoDBProvider(){
+    static DynamoDBProvider getEnvironmentDynamoDBProvider() {
         return new EnvironmentDynamoDBProvider();
     }
 }
