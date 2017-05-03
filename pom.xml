@@ -6,7 +6,7 @@
 
     <groupId>com.exorath</groupId>
     <artifactId>ServiceCommons</artifactId>
-    <version>1.4.2</version>
+    <version>1.4.3</version>
 
     <build>
         <plugins>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-dynamodb</artifactId>
-            <version>1.11.49</version>
+            <version>1.11.125</version>
         </dependency>
         <!-- Logging framework -->
         <dependency>
